@@ -1,0 +1,9 @@
+{
+  "db": {
+    "host": "imahost",
+    "port": "imaport"
+  },
+  "application": {
+    "port": 9000
+  }
+}
