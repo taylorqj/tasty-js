@@ -1,7 +1,7 @@
 {
   "db": {
-    "host": "imahost",
-    "port": "imaport"
+    "client": "pg",
+    "connection": "postgres://tastyapi@localhost:5432/tasty_development"
   },
   "application": {
     "port": 9000
