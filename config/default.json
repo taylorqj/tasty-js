@@ -1,7 +1,7 @@
 {
   "db": {
     "client": "pg",
-    "connection": "postgres://tastyapi@localhost:5432/tasty_development"
+    "connection": "postgres://tastyapi:developersx3@localhost:5432/tasty_development"
   },
   "application": {
     "port": 9000
