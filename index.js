@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 var config = require('config');
 var app = express();
 var router = express.Router();
@@ -12,6 +13,9 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
+// validator
+app.use(expressValidator());
+
 // wire up the routes
 require('./routes')(app);
 
@@ -20,7 +24,7 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.send('error', {
         message: err.message,
-        error: err
+        stack: err.stack
     });
 });
 
