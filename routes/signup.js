@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 var crypto = require('../modules/crypto');
+var uuid = require('uuid');
 
 router.post('/', function (req, res, next) {
     req.checkBody('firstName').notEmpty();
@@ -34,13 +35,16 @@ router.post('/', function (req, res, next) {
 
                 models.Person
                     .forge({
+                        id: uuid.v4(),
                         firstName: req.body.firstName,
                         lastName: req.body.lastName,
                         email: req.body.email,
                         password: result.hash,
                         salt: result.salt
                     })
-                    .save()
+                    .save(null, {
+                        method: 'insert'
+                    })
                     .then(function (result) {
                         // todo: move sanitize
                         delete result.attributes.password;

@@ -1,3 +1,4 @@
 module.exports = {
-  Person: require('./person')
+  Person: require('./person'),
+  Follower: require('./follower')
 };

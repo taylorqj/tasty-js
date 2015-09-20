@@ -38,7 +38,11 @@ router.post('/', function (req, res, next) {
                     });
                 }
 
-                var token = jwt.sign(result, config.auth.secret, {
+                // todo (tqj): move to sanitize
+                delete person.attributes.password;
+                delete person.attributes.salt;
+
+                var token = jwt.sign(person.attributes, config.auth.secret, {
                     issuer: config.auth.issuer,
                     audience: config.auth.audience,
                     expiresInMinutes: 120
