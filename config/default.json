@@ -1,9 +1,14 @@
 {
-  "db": {
-    "client": "pg",
-    "connection": "postgres://tastyapi:tastydev@localhost:5432/tasty_development"
-  },
-  "application": {
-    "port": 9000
-  }
+    "db": {
+        "client": "pg",
+        "connection": "postgres://tastyapi:tastydev@localhost:5432/tasty_development"
+    },
+    "application": {
+        "port": 9000
+    },
+    "auth": {
+        "secret": "supersecret",
+        "audience": "http://localhost:8000",
+        "issuer": "http://localhost:8000"
+    }
 }
